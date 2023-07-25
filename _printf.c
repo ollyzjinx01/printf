@@ -74,10 +74,10 @@ int _printf(const char *format, ...)
 			if (is_valid_format_specifier(*(ptr + 1)))
 			{
 				ptr++;
-				handle_forma_specifier(&ptr, args, &charCount);
+				handle_format_specifier(&ptr, args, &charCount);
 			} else
 			{
-				puthcar(*ptr);
+				putchar(*ptr);
 				charCount++;
 			}
 		} else
