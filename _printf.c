@@ -40,11 +40,6 @@ void handle_format_specifier(const char **format, va_list args, int *charCount)
 			(*charCount)++;
 		}
 		break;
-
-	case '%':
-		putchar('%');
-		(*charCount)++;
-		break;
 	default:
 		break;
 	}
