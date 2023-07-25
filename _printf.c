@@ -22,16 +22,14 @@ bool is_valid_format_specifier(char specifier)
  */
 void handle_format_specifier(const char **format, va_list args, int *charCount)
 {
-	const char *str;
-
 	switch (**format)
 	{
 	case 'c':
 		putchar(va_arg(args, int));
 		(*charCount)++;
 		break;
-	case 's':
-		str = va_arg(args, const char*);
+	case 's': {
+		const char *str = va_arg(args, const char*);
 
 		while (*str != '\0')
 		{
@@ -40,7 +38,10 @@ void handle_format_specifier(const char **format, va_list args, int *charCount)
 			(*charCount)++;
 		}
 		break;
+	}
 	case '%':
+		putchar('%');
+		(*charCount)++;
 		break;
 	default:
 		break;
@@ -72,11 +73,6 @@ int _printf(const char *format, ...)
 		{
 			ptr++;
 			handle_format_specifier(&ptr, args, &charCount);
-		} else if (*ptr == '%' && ((*(ptr + 1)) == '\0'))
-		{
-			putchar(*ptr);
-                        charCount++;
-			ptr++;
 		} else
 		{
 			putchar(*ptr);
@@ -88,4 +84,3 @@ int _printf(const char *format, ...)
 	va_end(args);
 	return (charCount);
 }
-
