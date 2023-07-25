@@ -78,6 +78,9 @@ int _printf(const char *format, ...)
 			{
 				ptr++;
 				handle_format_specifier(&ptr, args, &charCount);
+			} else if ((*(ptr + 1) == " ") || (*(ptr + 1) == '\0'))
+			{
+				continue;
 			} else
 			{
 				charCount++;
