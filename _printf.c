@@ -80,7 +80,6 @@ int _printf(const char *format, ...)
 				handle_format_specifier(&ptr, args, &charCount);
 			} else
 			{
-				putchar(*ptr);
 				charCount++;
 			}
 		} else
