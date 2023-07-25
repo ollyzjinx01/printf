@@ -2,9 +2,14 @@
 #include <stdio.h>
 #include <stdarg.h>
 #include <stdbool.h>
-
-bool is_valid_format_specifier(char specifier) {
-	return specifier == 'c' || specifier == 's' || specifier == '%';
+/**
+ * is_valid_format_specifier - to check if char is a valid one
+ * @specifier: char to check
+ * Return: boolean true or false
+ */
+bool is_valid_format_specifier(char specifier)
+{
+	return (specifier == 'c' || specifier == 's' || specifier == '%');
 }
 
 /**
