@@ -9,7 +9,7 @@
  */
 bool is_valid_format_specifier(char specifier)
 {
-	return (specifier == 'c' || specifier == 's' || specifier == '%');
+	return (specifier == 'c' || specifier == 's');
 }
 
 /**
