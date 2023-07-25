@@ -28,14 +28,28 @@ void handle_format_specifier(const char **format, va_list args, int *charCount)
 		putchar(va_arg(args, int));
 		(*charCount)++;
 		break;
-	case 's': {
-		const char *str = va_arg(args, const char*);
+	case 's':
+	{
+		const char *str = va_arg(args, const char *);
 
-		while (*str != '\0')
+		if (str == NULL)
 		{
-			putchar(*str);
-			str++;
-			(*charCount)++;
+			const char *nullStr = "(null)";
+
+			while (*nullStr != '\0')
+			{
+				putchar(*nullStr);
+				nullStr++;
+				(*charCount)++;
+			}
+		} else
+		{
+			while (*str != '\0')
+			{
+				putchar(*str);
+				str++;
+				(*charCount)++;
+			}
 		}
 		break;
 	}
