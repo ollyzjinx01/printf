@@ -43,6 +43,10 @@ void handle_format_specifier(const char **format, va_list args, int *charCount)
 		putchar('%');
 		(*charCount)++;
 		break;
+	case '\0':
+		putchar('%');
+		(*charCount)++;
+		break;
 	default:
 		break;
 	}
@@ -69,7 +73,7 @@ int _printf(const char *format, ...)
 	va_start(args, format);
 	while (*ptr != '\0')
 	{
-		if (*ptr == '%' && (is_valid_format_specifier(*(ptr + 1))))
+		if (*ptr == '%')
 		{
 			ptr++;
 			handle_format_specifier(&ptr, args, &charCount);
