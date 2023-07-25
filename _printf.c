@@ -83,6 +83,7 @@ int _printf(const char *format, ...)
 				continue;
 			} else
 			{
+				putchar(*ptr);
 				charCount++;
 			}
 		} else
