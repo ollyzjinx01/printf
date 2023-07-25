@@ -1,4 +1,49 @@
 #include "main.h"
+#include <stdio.h>
+#include <stdarg.h>
+#include <stdbool.h>
+
+bool is_valid_format_specifier(char specifier) {
+	return specifier == 'c' || specifier == 's' || specifier == '%';
+}
+
+/**
+ * handle_format_specifier - function to decide specifier and putchar
+ * @format: format specifier string
+ * @args: list of args passed in
+ * @charCount: current count of printed characters
+ *
+ * Return: void
+ */
+void handle_format_specifier(const char **format, va_list args, int *charCount)
+{
+	switch (**format)
+	{
+	case 'c':
+		putchar(va_arg(args, int));
+		(*charCount)++;
+		break;
+	case 's': {
+		const char *str = va_arg(args, const char*);
+
+		while (*str != '\0')
+		{
+			putchar(*str);
+			str++;
+			(*charCount)++;
+		}
+		break;
+	}
+	case '%':
+		putchar('%');
+		(*charCount)++;
+		break;
+	default:
+		break;
+	}
+}
+
+
 /**
  * _printf - Function that produces output according to a format.
  * write output to stdout, the standard output stream
@@ -12,42 +57,26 @@
 int _printf(const char *format, ...)
 {
 	va_list args;
-	char *string;
-	int printed_chars = 0;
+
+	int charCount = 0;
+	const char *ptr = format;
 
 	va_start(args, format);
-	while (*format)
+	while (*ptr != '\0')
 	{
-		if (*format == '%')
+		if (*ptr == '%' && (is_valid_format_specifier(*(ptr + 1))))
 		{
-			format++;
-			if (*format == '\0')
-				break;
-			if (*format == 'c')
-			{
-				putchar(va_arg(args, int));
-				printed_chars++;
-			} else if (*format == 's')
-			{
-				string = va_arg(args, char*);
-				while (*string)
-				{
-					putchar(*string);
-					string++;
-					printed_chars++;
-				}
-			} else if (*format == '%')
-			{
-				putchar('%');
-				printed_chars++;
-			}
+			ptr++;
+			handle_format_specifier(&ptr, args, &charCount);
 		} else
 		{
-			putchar(*format);
-			printed_chars++;
+			putchar(*ptr);
+			charCount++;
 		}
-		format++;
+		ptr++;
 	}
+
 	va_end(args);
-	return (printed_chars);
+	return (charCount);
 }
+
