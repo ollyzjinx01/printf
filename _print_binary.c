@@ -1,13 +1,13 @@
 #include "main.h"
 /**
  * print_binary - Helper function to print an integer in binary format
- * @num: The integer to be printed
+ * @num: The unsigned integer to be printed
  * @charCount: Pointer to the current count of printed characters
  */
-void print_binary(int num, int *charCount)
+void print_binary(unsigned int num, int *charCount)
 {
 	int numBits;
-	int mask;
+	unsigned int mask;
 
 	if (num == 0)
 	{
