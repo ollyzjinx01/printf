@@ -16,7 +16,8 @@ bool is_valid_format_specifier(char specifier)
 		specifier == 'i' ||
 		specifier == 'b' ||
 		specifier == 'u' ||
-		specifier == 'o');
+		specifier == 'o' ||
+		specifier == 'x');
 }
 
 /**
@@ -52,6 +53,9 @@ void handle_format_specifier(const char **format, va_list args, int *charCount)
 		break;
 	case 'o':
 		print_octal(va_arg(args, unsigned int), charCount);
+		break;
+	case 'x':
+		print_hexadecimal(va_arg(args, unsigned int), false, charCount);
 		break;
 	default:
 		break;
