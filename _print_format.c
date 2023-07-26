@@ -47,10 +47,15 @@ void print_integer(int num, int *charCount)
 {
 	char *digits;
 	int i;
-
 	int numDigits = 0;
 	int temp = num;
 
+	if (num == INT_MIN)
+	{
+		_printf("%d", num);
+		*charCount += 11;
+		return;
+	}
 	if (num < 0)
 	{
 		putchar('-');
