@@ -46,7 +46,6 @@ void print_string(va_list args, int *charCount)
 void print_integer(int num, int *charCount)
 {
 	char *digits;
-	int i;
 	int numDigits = 0;
 	int temp = num;
 
@@ -75,18 +74,7 @@ void print_integer(int num, int *charCount)
 
 	if (digits != NULL)
 	{
-		digits[numDigits] = '\0';
-
-		for (i = numDigits - 1; i >= 0; i--)
-		{
-			digits[i] = '0' + (num % 10);
-			num /= 10;
-		}
-		for (i = 0; i < numDigits; i++)
-		{
-			putchar(digits[i]);
-			(*charCount)++;
-		}
+		print_digits(digits, numDigits, charCount);
 		free(digits);
 	} else
 		exit(1);
