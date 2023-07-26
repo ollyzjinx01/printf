@@ -38,3 +38,45 @@ void print_string(va_list args, int *charCount)
 		}
 	}
 }
+/**
+ * print_integer - Helper function to print an integer
+ * @num: The integer to be printed
+ * @charCount: Pointer to the current count of printed characters
+ */
+void print_integer(int num, int *charCount)
+{
+	int numDigits = 0;
+
+	if (num < 0)
+	{
+		putchar('-');
+		(*charCount)++;
+		num = -num;
+	}
+
+	/*Counting the number of digits in the number*/
+	int temp = num;
+
+	do {
+		temp /= 10;
+		numDigits++;
+	} while (temp != 0);
+
+	/*Printing the digits in reverse order*/
+	char digits[numDigits + 1];
+
+	digits[numDigits] = '\0';
+
+	for (int i = numDigits - 1; i >= 0; i--)
+	{
+		digits[i] = '0' + (num % 10);
+		num /= 10;
+	}
+
+	/*Printing the digits*/
+	for (int i = 0; i < numDigits; i++)
+	{
+		putchar(digits[i]);
+		(*charCount)++;
+	}
+}

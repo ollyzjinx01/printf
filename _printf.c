@@ -9,7 +9,7 @@
  */
 bool is_valid_format_specifier(char specifier)
 {
-	return (specifier == 'c' || specifier == 's' || specifier == '%');
+	return (specifier == 'c' || specifier == 's' || specifier == '%'|| specifier == 'd'|| specifier == 'i');
 }
 
 /**
@@ -32,6 +32,10 @@ void handle_format_specifier(const char **format, va_list args, int *charCount)
 		break;
 	case '%':
 		print_char('%', charCount);
+		break;
+	case 'i':
+	case 'd':
+		print_integer(va_arg(args, int), charCount);
 		break;
 	default:
 		break;
