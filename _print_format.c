@@ -45,26 +45,25 @@ void print_string(va_list args, int *charCount)
  */
 void print_integer(int num, int *charCount)
 {
-	char* digits;
+	char *digits;
 	int i;
 
 	int numDigits = 0;
 	int temp = num;
+
 	if (num < 0)
 	{
 		putchar('-');
 		(*charCount)++;
 		num = -num;
 	}
-
 	/*Counting the number of digits in the number*/
 	do {
 		temp /= 10;
 		numDigits++;
 	} while (temp != 0);
-
 	/*Printing the digits in reverse order*/
-	digits = (char*)malloc((numDigits + 1) * sizeof(char));
+	digits = (char *)malloc((numDigits + 1) * sizeof(char));
 
 	if (digits != NULL)
 	{
@@ -75,7 +74,6 @@ void print_integer(int num, int *charCount)
 			digits[i] = '0' + (num % 10);
 			num /= 10;
 		}
-
 		/*Printing the digits*/
 		for (i = 0; i < numDigits; i++)
 		{
@@ -87,5 +85,4 @@ void print_integer(int num, int *charCount)
 	{
 		exit(1);
 	}
-
 }
