@@ -52,8 +52,7 @@ void print_integer(int num, int *charCount)
 
 	if (num == INT_MIN)
 	{
-		_printf("%d", num);
-		*charCount += 11;
+		print_min_int(charCount);
 		return;
 	}
 	if (num < 0)

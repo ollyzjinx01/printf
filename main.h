@@ -12,4 +12,5 @@ void print_string(va_list args, int *charCount);
 void print_integer(int num, int *charCount);
 void print_min_int(int *charCount);
 void print_max_int(int *charCount);
+void print_min_int(int *charCount);
 #endif /* MAIN_H */
