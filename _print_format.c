@@ -74,11 +74,15 @@ void print_integer(int num, int *charCount)
 		digits[numDigits] = '\0';
 
 		for (i = numDigits - 1; i >= 0; i--)
+		{
 			digits[i] = '0' + (num % 10);
 			num /= 10;
+		}
 		for (i = 0; i < numDigits; i++)
+		{
 			putchar(digits[i]);
 			(*charCount)++;
+		}
 		free(digits);
 	} else
 		exit(1);
