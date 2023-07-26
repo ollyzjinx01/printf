@@ -14,7 +14,7 @@ bool is_valid_format_specifier(char specifier)
 		specifier == '%' ||
 		specifier == 'd' ||
 		specifier == 'i' ||
-	        specifier == 'b');
+		specifier == 'b');
 }
 
 /**
