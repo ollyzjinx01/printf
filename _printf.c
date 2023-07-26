@@ -13,7 +13,8 @@ bool is_valid_format_specifier(char specifier)
 		specifier == 's' ||
 		specifier == '%' ||
 		specifier == 'd' ||
-		specifier == 'i');
+		specifier == 'i' ||
+	        specifier == 'b');
 }
 
 /**
@@ -40,6 +41,9 @@ void handle_format_specifier(const char **format, va_list args, int *charCount)
 	case 'i':
 	case 'd':
 		print_integer(va_arg(args, int), charCount);
+		break;
+	case 'b':
+		print_binary(va_arg(args, int), charCount);
 		break;
 	default:
 		break;
