@@ -57,12 +57,16 @@ void print_integer(int num, int *charCount)
 		(*charCount)++;
 		num = -num;
 	}
-	/*Counting the number of digits in the number*/
+	if (num == 0)
+	{
+		putchar('0');
+		(*charCount)++;
+		return;
+	}
 	do {
 		temp /= 10;
 		numDigits++;
 	} while (temp != 0);
-	/*Printing the digits in reverse order*/
 	digits = (char *)malloc((numDigits + 1) * sizeof(char));
 
 	if (digits != NULL)
@@ -70,19 +74,12 @@ void print_integer(int num, int *charCount)
 		digits[numDigits] = '\0';
 
 		for (i = numDigits - 1; i >= 0; i--)
-		{
 			digits[i] = '0' + (num % 10);
 			num /= 10;
-		}
-		/*Printing the digits*/
 		for (i = 0; i < numDigits; i++)
-		{
 			putchar(digits[i]);
 			(*charCount)++;
-		}
 		free(digits);
 	} else
-	{
 		exit(1);
-	}
 }
