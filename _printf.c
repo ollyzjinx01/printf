@@ -28,7 +28,7 @@ void handle_format_specifier(const char **format, va_list args, int *charCount)
 		print_char(va_arg(args, int), charCount);
 		break;
 	case 's':
-		print_string(va_arg(args, const char*), charCount);
+		print_string(args, charCount);
 		break;
 	case '%':
 		putchar('%');
