@@ -9,7 +9,11 @@
  */
 bool is_valid_format_specifier(char specifier)
 {
-	return (specifier == 'c' || specifier == 's' || specifier == '%'|| specifier == 'd'|| specifier == 'i');
+	return (specifier == 'c' ||
+		specifier == 's' ||
+		specifier == '%' ||
+		specifier == 'd' ||
+		specifier == 'i');
 }
 
 /**
