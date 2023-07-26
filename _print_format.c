@@ -11,7 +11,7 @@ void print_char(char ch, int *charCount)
 }
 /**
  * print_string - Helper function to print a string
- * @str: The string to be printed
+ * @args: The va_list containing the arguments
  * @charCount: Pointer to the current count of printed characters
  */
 void print_string(va_list args, int *charCount)
@@ -21,6 +21,7 @@ void print_string(va_list args, int *charCount)
 	if (str == NULL)
 	{
 		const char *nullStr = "(null)";
+
 		while (*nullStr != '\0')
 		{
 			putchar(*nullStr);
