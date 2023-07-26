@@ -25,8 +25,7 @@ void handle_format_specifier(const char **format, va_list args, int *charCount)
 	switch (**format)
 	{
 	case 'c':
-		putchar(va_arg(args, int));
-		(*charCount)++;
+		print_char(va_arg(args, int), charCount);
 		break;
 	case 's':
 	{
