@@ -15,7 +15,8 @@ bool is_valid_format_specifier(char specifier)
 		specifier == 'd' ||
 		specifier == 'i' ||
 		specifier == 'b' ||
-		specifier == 'u');
+		specifier == 'u' ||
+		specifier == 'o');
 }
 
 /**
@@ -48,6 +49,9 @@ void handle_format_specifier(const char **format, va_list args, int *charCount)
 		break;
 	case 'u':
 		print_unsigned_integer(va_arg(args, unsigned int), charCount);
+		break;
+	case 'o':
+		print_octal(va_arg(args, unsigned int), charCount);
 		break;
 	default:
 		break;
