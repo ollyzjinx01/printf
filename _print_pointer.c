@@ -16,10 +16,13 @@ void print_pointer(const void *ptr, int *charCount)
 
 	if (ptr == NULL)
 	{
-		putchar('0');
-		putchar('x');
-		putchar('0');
-		(*charCount) += 3;
+		const char *nilStr = "(nil)";
+		while (*nilStr != '\0')
+		{
+			putchar(*nilStr);
+			(*charCount)++;
+			nilStr++;
+		}
 	} else
 	{
 		putchar('0');

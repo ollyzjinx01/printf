@@ -68,5 +68,14 @@ int main(void)
     _printf("Maximum value of int: %i\n", INT_MAX);
     printf("Minimum value of int: %i\n", INT_MIN);
     _printf("Minimum value of int: %i\n", INT_MIN);
-    return (0);
+   _printf("Can you print an address?\n%p\nNice!\n", (void *)0x7fff5100b6f8);
+   printf("Can you print an address?\n%p\nNice!\n", (void *)0x7fff5100b6f8);
+  
+  _printf("Can you print several addresses?\n%p,%p,%p,%p\nNice!\n", (void *)0x7fff5100b6f8, (void *)0x7faf51f0f608, (void *)0x6ff42510b6f8, (void *)0x7fff510236f8);
+printf("Can you print several addresses?\n%p,%p,%p,%p\nNice!\n", (void *)0x7fff5100b6f8, (void *)0x7faf51f0f608, (void *)0x6ff42510b6f8, (void *)0x7fff510236f8); 
+    
+	_printf("%p", NULL);
+	printf("%p", NULL);
+
+	return (0);
 }
