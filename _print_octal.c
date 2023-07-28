@@ -1,6 +1,6 @@
 #include "main.h"
 
-void to_oct(char *octalDigits, unsigned int num, int numDigits, int *charCount);
+void to_oct(char *octDigits, unsigned int num, int numDigits, int *charCount);
 
 /**
  * print_octal - Helper function to print an unsigned integer in octal format
