@@ -11,6 +11,7 @@ bool is_valid_format_specifier(char specifier)
 {
 	return (specifier == 'c' ||
 		specifier == 's' ||
+		specifier == 'S' ||
 		specifier == '%' ||
 		specifier == 'd' ||
 		specifier == 'i' ||
@@ -38,6 +39,9 @@ void handle_format_specifier(const char **format, va_list args, int *charCount)
 		break;
 	case 's':
 		print_string(args, charCount);
+		break;
+	case 'S':
+		print_custom_string(va_arg(args, char*), charCount);
 		break;
 	case '%':
 		print_char('%', charCount);
