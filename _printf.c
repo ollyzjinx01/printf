@@ -18,7 +18,8 @@ bool is_valid_format_specifier(char specifier)
 		specifier == 'u' ||
 		specifier == 'o' ||
 		specifier == 'x' ||
-		specifier == 'X');
+		specifier == 'X' ||
+		specifier == 'P');
 }
 
 /**
@@ -60,6 +61,9 @@ void handle_format_specifier(const char **format, va_list args, int *charCount)
 		break;
 	case 'X':
 		print_hexadecimal(va_arg(args, unsigned int), true, charCount);
+		break;
+	case 'p':
+		print_pointer(va_arg(args, const void*), charCount);
 		break;
 	default:
 		break;
