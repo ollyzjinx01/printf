@@ -38,27 +38,27 @@ void print_octal(unsigned int num, int *charCount)
 /**
  * to_oct - Helper function to convert an
  * unsigned integer to octal representation
- * @octalDigits: Pointer to a character array
+ * @octDigits: Pointer to a character array
  * to store the octal representation
  * @num: The unsigned integer to be converted
  * @numDigits: The number of digits in the octal representation
  * @charCount: Pointer to the current count of printed characters
  */
-void to_oct(char *octalDigits, unsigned int num, int numDigits, int *charCount)
+void to_oct(char *octDigits, unsigned int num, int numDigits, int *charCount)
 {
 	int i;
 
-	octalDigits[numDigits] = '\0';
+	octDigits[numDigits] = '\0';
 
 	for (i = numDigits - 1; i >= 0; i--)
 	{
-		octalDigits[i] = '0' + (num & 7);
+		octDigits[i] = '0' + (num & 7);
 		num >>= 3;
 	}
 
 	for (i = 0; i < numDigits; i++)
 	{
-		putchar(octalDigits[i]);
+		putchar(octDigits[i]);
 		(*charCount)++;
 	}
 }
