@@ -21,4 +21,5 @@ void d_and_c(char *digits, int numDigits, unsigned int num, int *charCount);
 void print_octal(unsigned int num, int *charCount);
 void print_hexadecimal(unsigned int num, bool uppercase, int *charCount);
 void print_pointer(const void *ptr, int *charCount);
+void print_custom_string(const char *str, int *charCount);
 #endif /* MAIN_H */
