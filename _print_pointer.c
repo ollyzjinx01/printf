@@ -14,28 +14,37 @@ void print_pointer(const void *ptr, int *charCount)
 	char hexDigits[16];
 	int numDigits = 0;
 
-	putchar('0');
-	putchar('x');
-	(*charCount) += 2;
-
-	if (address == 0)
+	if (ptr == NULL)
 	{
 		putchar('0');
-		(*charCount)++;
-	}
-	else
+		putchar('x');
+		putchar('0');
+		(*charCount) += 3;
+	} else
 	{
-		while (address > 0)
-		{
-			hexDigits[numDigits] = hexChars[address & 0xF];
-			address >>= 4;
-			numDigits++;
-		}
+		putchar('0');
+		putchar('x');
+		(*charCount) += 2;
 
-		for (i = numDigits - 1; i >= 0; i--)
+		if (address == 0)
 		{
-			putchar(hexDigits[i]);
+			putchar('0');
 			(*charCount)++;
+		}
+		else
+		{
+			while (address > 0)
+			{
+				hexDigits[numDigits] = hexChars[address & 0xF];
+				address >>= 4;
+				numDigits++;
+			}
+
+			for (i = numDigits - 1; i >= 0; i--)
+			{
+				putchar(hexDigits[i]);
+				(*charCount)++;
+			}
 		}
 	}
 }
