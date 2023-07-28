@@ -33,6 +33,8 @@ bool is_valid_format_specifier(char specifier)
  */
 void handle_format_specifier(const char **format, va_list args, int *charCount)
 {
+	const void *ptr;
+
 	switch (**format)
 	{
 	case 'c':
@@ -67,7 +69,12 @@ void handle_format_specifier(const char **format, va_list args, int *charCount)
 		print_hexadecimal(va_arg(args, unsigned int), true, charCount);
 		break;
 	case 'p':
-		print_pointer(va_arg(args, const void*), charCount);
+		while ((ptr = va_arg(args, const void *)) != NULL)
+		{
+			print_pointer(ptr, charCount);
+			if (**format == ' ')
+				(*format)++;
+		}
 		break;
 	default:
 		break;
