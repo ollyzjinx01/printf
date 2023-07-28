@@ -20,7 +20,7 @@ bool is_valid_format_specifier(char specifier)
 		specifier == 'o' ||
 		specifier == 'x' ||
 		specifier == 'X' ||
-		specifier == 'P');
+		specifier == 'p');
 }
 
 /**
