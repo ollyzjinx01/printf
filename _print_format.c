@@ -74,7 +74,7 @@ void print_integer(int num, int *charCount)
 
 	if (digits != NULL)
 	{
-		print_digits(digits, numDigits, charCount);
+		print_digits(digits, numDigits, num, charCount);
 		free(digits);
 	} else
 		exit(1);

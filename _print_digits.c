@@ -2,13 +2,13 @@
 /**
  * print_digits - Helper function to print an array of digits as characters
  * @digits: The array of digits to be printed
- * @numDigits: The number of digits in the array
+ * @numDigits: The number of digits in the arraiy
+ * @num: num passed in
  * @charCount: Pointer to the current count of printed characters
  */
-void print_digits(char *digits, int numDigits, int *charCount)
+void print_digits(char *digits, int numDigits, int num, int *charCount)
 {
 	int i;
-	int num = 0;
 
 	digits[numDigits] = '\0';
 
